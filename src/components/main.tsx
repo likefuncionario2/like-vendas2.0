@@ -50,7 +50,7 @@ export function Main() {
         <div>
           <h3 className="text-2xl font-blod text-blue-500 my-4">Analisar</h3>
           <p className="m-4">
-          A funcionalidade "Analisar" oferece recursos avançados de análise de dados. Aqui, você pode explorar informações detalhadas sobre suas vendas, como análise de vendas por período, região ou produto específico. Além disso, você pode acompanhar o desempenho dos produtos ao longo do tempo, identificar os itens mais vendidos e os menos populares, e tomar decisões de compra mais assertivas.
+          A funcionalidade Analisar oferece recursos avançados de análise de dados. Aqui, você pode explorar informações detalhadas sobre suas vendas, como análise de vendas por período, região ou produto específico. Além disso, você pode acompanhar o desempenho dos produtos ao longo do tempo, identificar os itens mais vendidos e os menos populares, e tomar decisões de compra mais assertivas.
            </p>
         </div>
 
@@ -66,7 +66,7 @@ export function Main() {
         <div>
           <h3 className="text-2xl font-blod text-blue-500 my-4"> Feed</h3>
           <p className="m-4">
-          A funcionalidade "Feed" é um canal de comunicação interno no sistema, permitindo que você compartilhe informações e atualizações importantes com sua equipe de vendas e gerentes de estoque. Você pode criar publicações, compartilhar documentos relevantes, fornecer diretrizes e manter todos os membros da equipe atualizados sobre as últimas notícias e mudanças no estoque e nas estratégias de vendas.
+          A funcionalidade Feed é um canal de comunicação interno no sistema, permitindo que você compartilhe informações e atualizações importantes com sua equipe de vendas e gerentes de estoque. Você pode criar publicações, compartilhar documentos relevantes, fornecer diretrizes e manter todos os membros da equipe atualizados sobre as últimas notícias e mudanças no estoque e nas estratégias de vendas.
            </p>
         </div>
       </div>
@@ -75,7 +75,7 @@ export function Main() {
         <div>
           <h3 className="text-2xl font-blod text-blue-500 my-4"> Funcionários</h3>
           <p className="m-4">
-          A funcionalidade "Funcionários" permite gerenciar e controlar as informações relacionadas à equipe. Você pode cadastrar funcionários, atribuir permissões e acessos específicos, acompanhar o desempenho individual, gerenciar escalas de trabalho e férias, além de manter um registro atualizado das informações pessoais dos funcionários.
+          A funcionalidade Funcionários permite gerenciar e controlar as informações relacionadas à equipe. Você pode cadastrar funcionários, atribuir permissões e acessos específicos, acompanhar o desempenho individual, gerenciar escalas de trabalho e férias, além de manter um registro atualizado das informações pessoais dos funcionários.
            </p>
         </div>
 
@@ -90,7 +90,7 @@ export function Main() {
         <div>
           <h3 className="text-2xl font-blod text-blue-500 my-4"> Produtos</h3>
           <p className="m-4">
-          A funcionalidade "Produtos" permite gerenciar todo o ciclo de vida dos seus produtos. Você pode cadastrar novos produtos, definir informações como descrição, preço, código de barras e categoria. Além disso, você pode acompanhar o estoque disponível, gerenciar fornecedores, definir níveis mínimos e máximos de estoque, e receber alertas automáticos quando for necessário reabastecer.
+          A funcionalidade Produtos permite gerenciar todo o ciclo de vida dos seus produtos. Você pode cadastrar novos produtos, definir informações como descrição, preço, código de barras e categoria. Além disso, você pode acompanhar o estoque disponível, gerenciar fornecedores, definir níveis mínimos e máximos de estoque, e receber alertas automáticos quando for necessário reabastecer.
            </p>
         </div>
       </div>
@@ -99,7 +99,7 @@ export function Main() {
         <div>
           <h3 className="text-2xl font-blod text-blue-500 my-4"> Notas</h3>
           <p className="m-4">
-          A funcionalidade "Notas" é uma ferramenta para registrar informações importantes relacionadas ao estoque e às vendas. Aqui, você pode criar anotações sobre produtos específicos, fornecedores, clientes, solicitações de compra ou qualquer outro aspecto relevante para o seu negócio. Essas notas servem como um registro útil para consulta futura e podem ser compartilhadas com outros membros da equipe, se necessário.
+          A funcionalidade Notas é uma ferramenta para registrar informações importantes relacionadas ao estoque e às vendas. Aqui, você pode criar anotações sobre produtos específicos, fornecedores, clientes, solicitações de compra ou qualquer outro aspecto relevante para o seu negócio. Essas notas servem como um registro útil para consulta futura e podem ser compartilhadas com outros membros da equipe, se necessário.
            </p>
         </div>
 
@@ -115,7 +115,7 @@ export function Main() {
         <div>
           <h3 className="text-2xl font-blod text-blue-500 my-4"> Suporte</h3>
           <p className="m-4">
-          A funcionalidade "Suporte" é o canal de comunicação para obter assistência e suporte técnico do sistema Like Vendas. Se você encontrar algum problema, tiver dúvidas ou precisar de orientação, você pode entrar em contato com a equipe de suporte através dessa funcionalidade. A equipe de suporte estará pronta para ajudar e garantir que você aproveite ao máximo todas as funcionalidades do sistema de gestão de estoque e vendas.
+          A funcionalidade Suporte é o canal de comunicação para obter assistência e suporte técnico do sistema Like Vendas. Se você encontrar algum problema, tiver dúvidas ou precisar de orientação, você pode entrar em contato com a equipe de suporte através dessa funcionalidade. A equipe de suporte estará pronta para ajudar e garantir que você aproveite ao máximo todas as funcionalidades do sistema de gestão de estoque e vendas.
            </p>
         </div>
 
