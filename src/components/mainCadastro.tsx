@@ -98,7 +98,7 @@ export function MainCadastro() {
                 </p>
                 
             </div>
-            <Input label="Nome da Loja" className="w-full" {...register("nameStore", { required: true })}/>
+            <Input label="Nome da Empresa" className="w-full" {...register("nameStore", { required: true })}/>
             <Input  label="Telefone" type="tel" className="w-full" {...register("tel", { required: true })}/>
             <Input  label="logotipo" type="file" className="w-full" {...register("file", { required: true })} onChange={(e:any) => {
               const file = e.target.files[0]

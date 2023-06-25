@@ -38,7 +38,7 @@ export function Main() {
             O <span className="text-blue-500 font-bold">Like Vendas</span> é um site de gestão de vendas e stock. Para pequenas e medias empresas.
           </p>
           <p data-aos="zoom-in-left"className="my-4 text-center max-w-[800px]">
-            A <span className="text-blue-500 font-bold">Like Vendas</span> é um site dedicado à gestão de estoque e vendas, especialmente desenvolvido para atender às necessidades de pequenas e medias empreas. Com recursos intuitivos e eficientes, permite que os comerciantes controlem seus produtos, acompanhem o estoque disponível e realizem vendas de forma simples e organizada. Com a <span className="text-blue-500 font-bold">Like Vendas</span>, os proprietários de pequenas e medias empresas têm acesso a uma plataforma prática e eficaz para gerenciar o estoque de seus produtos, otimizando assim suas operações e melhorando o atendimento aos clientes.
+            O <span className="text-blue-500 font-bold">Like Vendas</span> é um site dedicado à gestão de estoque e vendas, especialmente desenvolvido para atender às necessidades de pequenas e medias empreas. Com recursos intuitivos e eficientes, permite que os comerciantes controlem seus produtos, acompanhem o estoque disponível e realizem vendas de forma simples e organizada. Com o <span className="text-blue-500 font-bold">Like Vendas</span>, os proprietários de pequenas e medias empresas têm acesso a uma plataforma prática e eficaz para gerenciar o estoque de seus produtos, otimizando assim suas operações e melhorando o atendimento aos clientes.
           </p>
         </div>
 

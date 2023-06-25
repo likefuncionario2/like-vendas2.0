@@ -90,7 +90,7 @@ export function MainLogin() {
           onSubmit={handleSubmit(onSubmit)}
           className="flex gap-8 flex-col justify-center">
             <div className="flex gap-4">
-              <Radio id="html" name="type" label="loja" onChange={() => setTypeSign("store")}/>
+              <Radio id="html" name="type" label="Empresa" onChange={() => setTypeSign("store")}/>
               <Radio id="react" name="type" label="funcionário" onChange={() => setTypeSign("functionary")}/>
               </div>
               <hr />

@@ -5,11 +5,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Like Vendas',
-  description: 'A Like Vendas é um site dedicado à gestão de estoque, especialmente desenvolvido para atender às necessidades de pequenas lojas. Com recursos intuitivos e eficientes, permite que os comerciantes controlem seus produtos, acompanhem o estoque disponível e realizem vendas de forma simples e organizada. Com a <span className="text-blue-500 font-bold">Like Vendas</span>, os proprietários de pequenas lojas têm acesso a uma plataforma prática e eficaz para gerenciar o estoque de seus produtos, otimizando assim suas operações e melhorando o atendimento aos clientes',
+  description: 'O Like Vendas é um site dedicado à gestão de estoque e vendas, especialmente desenvolvido para atender às necessidades de pequenas e medias empreas. Com recursos intuitivos e eficientes, permite que os comerciantes controlem seus produtos, acompanhem o estoque disponível e realizem vendas de forma simples e organizada. Com o <span className="text-blue-500 font-bold">Like Vendas</span>, os proprietários de pequenas e medias empreas têm acesso a uma plataforma prática e eficaz para gerenciar o estoque de seus produtos, otimizando assim suas operações e melhorando o atendimento aos clientes',
   openGraph: {
     url: `${process.env.NEXT_PUBLIC_URL}`,
     title: 'Like Vendas',
-    description: `A Like Vendas é um site dedicado à gestão de estoque, especialmente desenvolvido para atender às necessidades de pequenas lojas. Com recursos intuitivos e eficientes, permite que os comerciantes controlem seus produtos, acompanhem o estoque disponível e realizem vendas de forma simples e organizada. Com a <span className="text-blue-500 font-bold">Like Vendas</span>, os proprietários de pequenas lojas têm acesso a uma plataforma prática e eficaz para gerenciar o estoque de seus produtos, otimizando assim suas operações e melhorando o atendimento aos clientes`,
+    description: `O Like Vendas é um site dedicado à gestão de estoque e vendas, especialmente desenvolvido para atender às necessidades de pequenas e medias empreas. Com recursos intuitivos e eficientes, permite que os comerciantes controlem seus produtos, acompanhem o estoque disponível e realizem vendas de forma simples e organizada. Com o <span className="text-blue-500 font-bold">Like Vendas</span>, os proprietários de pequenas e medias empreas têm acesso a uma plataforma prática e eficaz para gerenciar o estoque de seus produtos, otimizando assim suas operações e melhorando o atendimento aos clientes`,
     images: [
       {
         url: 'https://media.graphassets.com/E2jLBD1REWBg4CIb5z61',
