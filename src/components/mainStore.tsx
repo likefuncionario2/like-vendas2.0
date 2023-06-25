@@ -130,7 +130,7 @@ export function MainStore({ data }: any) {
           )
       }
 
-      <div className="absolute bottom-5 right-5">
+      <div className="relative bottom-5 right-5">
         <Button onClick={() => setOpenFeedback(true)}>Enviar Feedback</Button>
       </div>
 
