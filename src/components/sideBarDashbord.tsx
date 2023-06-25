@@ -21,7 +21,6 @@ import { ChartBar, Cube, HardDrives, House, Info, NotePencil, Rss, SignOut, User
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { MainSuporte } from "./mainSuporte";
  
 export default function SideBarDashbord() {
   const id_auth = useIdAuth();
@@ -63,7 +62,7 @@ export default function SideBarDashbord() {
         <Button onClick={handleOpen} className="bg-transparent text-black" >
                 Cancelar
           </Button>
-          <Link href="#">
+          <Link href="https://is.gd/ZQ0uVd">
           <Button className="bg-green-500 text-white p-3 rounded-full hover:bg-white hover:text-green-500 transition-all">
             WhatsApp
           </Button>
