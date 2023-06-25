@@ -130,7 +130,7 @@ export function MainStore({ data }: any) {
           )
       }
 
-      <div className="relative bottom-5 right-5">
+      <div className="my-8 flex justify-end">
         <Button onClick={() => setOpenFeedback(true)}>Enviar Feedback</Button>
       </div>
 
