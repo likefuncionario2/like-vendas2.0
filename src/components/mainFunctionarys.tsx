@@ -25,8 +25,8 @@ export function MainFunctionarys({ data}:any) {
       {
         label: "Vendas dos Funcionários",
         data: dataGrafig.map((item:any) => item.value),
-        backgroundColor: ['rgba(33, 150, 243, 0.1)', 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
-        borderColor: ['rgba(33, 150, 243, 0.1)', 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
+        backgroundColor: [ 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
+        borderColor: [ 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
         borderWidth: 1,
       },
     ],
