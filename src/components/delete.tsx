@@ -11,7 +11,7 @@ import { Trash } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export function Delete({ id, type, quat}: any) {
+export function Delete({ id, type, quat,id_product}: any) {
     const [loanding, setLoading] = useState(false);
     const router = useRouter()
     const id_auth = useIdAuth()
@@ -26,14 +26,14 @@ export function Delete({ id, type, quat}: any) {
             router.push(`/users/store/${id_auth}/products`)
           } else if (type === "sale") {
             await actionSaleDelete(Number(id));
-            await updateQuatProduct(id,quat)
+            await updateQuatProduct(id_product,quat)
             window.location.reload();
           } else if (type === "note") {
             await actionNoteDelete(Number(id))
             window.location.reload();
           } else {
             await actionAdditionDelete(Number(id));
-            await updateQuatProduct(id,quat)
+            await updateQuatProduct(id_product,quat)
             window.location.reload();
           }          
        setLoading(false);

@@ -181,7 +181,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
         {
           typeLogin === "store" ? (
             <>
-              <Delete id={dataProduct[0].id} type="product"/>
+              <Delete id={dataProduct[0].id} type="product" id_product={0}/>
         <PencilSimple size={32} className="hover:text-blue-500 transition-all" onClick={() => setOpenEditor(!openEditor)}/>
             </>
           ) : null
@@ -319,7 +319,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
                   </td>
                   <td  className="px-2 py-4 text-xs">
                     <Typography variant="small"  className="font-normal">
-                      <Delete id={item.id} type={isSale === true ? "sale" : "addition"} quat={isSale === true ? dataProduct[0].quantity + quat : dataProduct[0].quantity - quat}/>
+                      <Delete id={item.id} type={isSale === true ? "sale" : "addition"} quat={isSale === true ? dataProduct[0].quantity + quat : dataProduct[0].quantity - quat} id_product={dataProduct[0].id} />
                     </Typography>
                   </td>
                 </tr>
