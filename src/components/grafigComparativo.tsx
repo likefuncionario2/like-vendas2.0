@@ -70,7 +70,7 @@ export function GrafigComparativo({ type,data }: any) {
     scales: {
       y: {
         beginAtZero: true,
-        max: Math.max(...values) + 10,
+        max: Math.max(...values) * 2,
       },
     },
   };

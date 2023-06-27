@@ -43,7 +43,7 @@ export function Grafig({ type,data,label,tableRows}: IGrafig) {
     scales: {
       y: {
         beginAtZero: true,
-        max: Math.max(...quantidades) + 10,
+        max: Math.max(...quantidades) * 2,
       },
     },
   };

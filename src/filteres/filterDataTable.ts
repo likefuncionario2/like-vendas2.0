@@ -38,5 +38,5 @@ export function filterDataTable(data:any) {
     const lucro = total - custos
 
 
-    return [npv,nap,total,custos,lucro]
+    return [npv,nap,total.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' }),custos.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' }),lucro.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' })]
 }

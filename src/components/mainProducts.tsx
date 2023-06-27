@@ -7,9 +7,15 @@ import Link from "next/link"
 import { filterProduct } from "@/filteres/filterProduct"
 import { useState } from "react"
 import { search } from "@/filteres/search"
+import { useType } from "@/hooks/useType"
+import { useFunctionary } from "@/hooks/useFunctionary"
 
 export function MainProducts({ data }:any) {
-  const dataTable = filterProduct(data)
+  const typeLogin = useType()
+  const functionary = useFunctionary()
+  const id_functionary = functionary?.id_functionary
+
+  const dataTable = filterProduct(data,typeLogin)
   dataTable.sort((a:any, b:any) => b.nvp - a.nvp);
   const [dataSearch, setDataSearch] = useState<any>()
   const type = "day"
@@ -183,11 +189,15 @@ export function MainProducts({ data }:any) {
      </div> 
      <div className="fixed bottom-5 right-5">
         <div className="max-w-[200px]">
-          <Button>
+          {
+            typeLogin === "store" ? (
+              <Button>
             <Link href={`/users/store/${id_auth}/createProduct`}>
               Criar
             </Link>
           </Button>
+            ) : null
+          }
         </div>
       </div>
   </main>    

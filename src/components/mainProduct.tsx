@@ -19,12 +19,13 @@ import { useIdAuth } from "@/hooks/useIdAuth";
 import { useRouter } from "next/navigation";
 import z from "zod"
 import { useForm,SubmitHandler } from "react-hook-form";
-import { useFunctionary } from "@/hooks/useFunctionary";
 import { useUserLocalStorage } from "@/hooks/useUserLocalStorage";
 import { actionSaleCreate } from "@/app/endpoints/sale_product/create/action";
 import { actionAdditionCreate } from "@/app/endpoints/addition_product/create/action";
 import { Delete } from "./delete";
 import { updateQuatProduct } from "@/app/endpoints/product/updateQuat/action";
+import { useType } from "@/hooks/useType"
+import { useFunctionary } from "@/hooks/useFunctionary"
 Chart.register(...registerables);
 
 const schema = z.object({
@@ -35,6 +36,10 @@ type IFormInput = z.infer<typeof schema>;
 
 
 export function MainProduct({ dataProduct,id_product }:any) {
+  const typeLogin = useType()
+  const functionary = useFunctionary()
+  const id_functionary = functionary?.id_functionary
+  
   const { register, handleSubmit,formState: { errors } } = useForm<IFormInput>();
   const [loading,setLoading] = useState(false)
 
@@ -161,7 +166,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
     scales: {
       y: {
         beginAtZero: true,
-        max: Math.max(...dataGrafig.map((item:any) => item.value)) + 10,
+        max: Math.max(...dataGrafig.map((item:any) => item.value)) * 2,
       },
     },
   };
@@ -172,8 +177,14 @@ export function MainProduct({ dataProduct,id_product }:any) {
     </div>
     <div className="min-w-full max-w-full lg:max-w-[80%] lg:min-w-[80%] p-4 flex justify-center itemes-center flex-col">
     <div className="min-w-full flex justify-between mb-6">
-        <Delete id={dataProduct[0].id} type="product"/>
+        {
+          typeLogin === "store" ? (
+            <>
+              <Delete id={dataProduct[0].id} type="product"/>
         <PencilSimple size={32} className="hover:text-blue-500 transition-all" onClick={() => setOpenEditor(!openEditor)}/>
+            </>
+          ) : null
+        }
     </div>
     <div>
     {
@@ -205,8 +216,10 @@ export function MainProduct({ dataProduct,id_product }:any) {
       <div><span className="">Categoria:</span> {dataProduct[0].category}</div>
       <div><span className="">Descrição:</span> {dataProduct[0].description}</div>
     </div>
-      <Table tableHeard={["N.P.V","N.A.P","Total vendido","Custos","Lucro"]} 
-          tableRows={tableRowsT}/>
+      {
+        typeLogin === "store" && <Table tableHeard={["N.P.V","N.A.P","Total vendido","Custos","Lucro"]} 
+        tableRows={tableRowsT}/>
+      }
     </div>
     <div className="min-w-full flex gap-2 justify-between flex-wrap mt-8">
     <div className="min-w-full flex gap-2 flex-wrap items-center">
@@ -244,7 +257,9 @@ export function MainProduct({ dataProduct,id_product }:any) {
       }
     </div>
 
-    <div className="mt-8 max-h-[600px]">
+    {
+      typeLogin === "store" && (
+        <div className="mt-8 max-h-[600px]">
     {
         typeChart === "Bar"? (
                   <Bar data={dataChart} options={options} />
@@ -255,58 +270,64 @@ export function MainProduct({ dataProduct,id_product }:any) {
                 ) : null
       }
     </div>
+      )
+    }
 
     <div className="mt-8">
-    <Card className="overflow-scroll lg:overflow-none min-w-full flex jusify-center">
-      <table className="text-center">
-        <thead>
-          <tr>
-            {tableHeard.map((head) => (
-              <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 px-2 py-4 text-xs">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70"
-                >
-                  {head}
-                </Typography>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-        {dataTable.map((item:any,index:any) => (
-            <tr  key={index} className="even:bg-blue-gray-50/50 hover:bg-blue-500 hover:text-white">
-              <td  className="px-2 py-4 text-xs">
-                <Typography variant="small" className="font-normal">
-                  {item.date}
-                </Typography>
-              </td>
-              <td  className="px-2 py-4 text-xs">
-                <Typography variant="small"  className="font-normal">
-                  {item.price}
-                </Typography>
-              </td>
-              <td  className="px-2 py-4 text-xs">
-                <Typography variant="small"  className="font-normal">
-                  {item.quat}
-                </Typography>
-              </td>
-              <td  className="px-2 py-4 text-xs">
-                <Typography variant="small"  className="font-normal">
-                  {item.total }
-                </Typography>
-              </td>
-              <td  className="px-2 py-4 text-xs">
-                <Typography variant="small"  className="font-normal">
-                  <Delete id={item.id} type={isSale === true ? "sale" : "addition"} quat={isSale === true ? dataProduct[0].quantity + quat : dataProduct[0].quantity - quat}/>
-                </Typography>
-              </td>
-            </tr>
-            ))}
-        </tbody>
-      </table>
-    </Card>
+      {
+        typeLogin === "store" && (
+          <Card className="overflow-scroll lg:overflow-none min-w-full flex jusify-center">
+          <table className="text-center">
+            <thead>
+              <tr>
+                {tableHeard.map((head) => (
+                  <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 px-2 py-4 text-xs">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal leading-none opacity-70"
+                    >
+                      {head}
+                    </Typography>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+            {dataTable.map((item:any,index:any) => (
+                <tr  key={index} className="even:bg-blue-gray-50/50 hover:bg-blue-500 hover:text-white">
+                  <td  className="px-2 py-4 text-xs">
+                    <Typography variant="small" className="font-normal">
+                      {item.date}
+                    </Typography>
+                  </td>
+                  <td  className="px-2 py-4 text-xs">
+                    <Typography variant="small"  className="font-normal">
+                      {item.price}
+                    </Typography>
+                  </td>
+                  <td  className="px-2 py-4 text-xs">
+                    <Typography variant="small"  className="font-normal">
+                      {item.quat}
+                    </Typography>
+                  </td>
+                  <td  className="px-2 py-4 text-xs">
+                    <Typography variant="small"  className="font-normal">
+                      {item.total }
+                    </Typography>
+                  </td>
+                  <td  className="px-2 py-4 text-xs">
+                    <Typography variant="small"  className="font-normal">
+                      <Delete id={item.id} type={isSale === true ? "sale" : "addition"} quat={isSale === true ? dataProduct[0].quantity + quat : dataProduct[0].quantity - quat}/>
+                    </Typography>
+                  </td>
+                </tr>
+                ))}
+            </tbody>
+          </table>
+        </Card>
+        )
+      }
     </div>
 
     <div>
@@ -429,6 +450,8 @@ export function MainProduct({ dataProduct,id_product }:any) {
             </Button>
           </Tooltip>
           </SpeedDialAction>
+          {
+            typeLogin === "store" && (
           <SpeedDialAction>
           <Tooltip content="Adição de produto">
             <Button onClick={() => {
@@ -439,6 +462,8 @@ export function MainProduct({ dataProduct,id_product }:any) {
             </Button>
           </Tooltip>
           </SpeedDialAction>
+            )
+          }
         </SpeedDialContent>
       </SpeedDial>
       </div>

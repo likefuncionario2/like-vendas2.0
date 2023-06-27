@@ -26,7 +26,7 @@ export function MainRelatorio({type,data}:any) {
 
   const dataGrafig = filterGrafig(data1);
   const tableRows1 = filterDataTable(data1)
-  const dataTable = filterProduct(dataNow)
+  const dataTable = filterProduct(dataNow,"store")
   dataTable.sort((a:any, b:any) => b.nvp - a.nvp);
 
 
@@ -53,7 +53,7 @@ export function MainRelatorio({type,data}:any) {
     scales: {
       y: {
         beginAtZero: true,
-        max: Math.max(...dataGrafig.map((item:any) => item.value)) + 10,
+        max: Math.max(...dataGrafig.map((item:any) => item.value)) * 2,
       },
     },
   };

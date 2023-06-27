@@ -62,7 +62,7 @@ export function MainFunctionary({ dataFunctionary }:any) {
     scales: {
       y: {
         beginAtZero: true,
-        max: Math.max(...dataGrafig.map((item:any) => item.value)) + 10,
+        max: Math.max(...dataGrafig.map((item:any) => item.value)) * 2,
       },
     },
   };
