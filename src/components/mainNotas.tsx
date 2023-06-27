@@ -11,6 +11,7 @@ import { actionNoteCreate } from "@/app/endpoints/note/create/action";
 import { Delete } from "./delete";
 import { PencilSimple } from "@phosphor-icons/react";
 import { EditorNote } from "./editorNote";
+import { useType } from "@/hooks/useType";
 
 const schema = z.object({
     content: z.string(),
@@ -19,6 +20,7 @@ const schema = z.object({
   type IFormInput = z.infer<typeof schema>;
 
 export function MainNotas({ data }:any) {
+    const typeLogin = useType()
     const user  = useUserLocalStorage()
     const [openDialog, setOpenDialog] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -27,6 +29,11 @@ export function MainNotas({ data }:any) {
     const { register, handleSubmit,formState: { errors } } = useForm<IFormInput>();
     const functLocal = useFunctionary()
 
+    const notas = typeLogin !== "store" ? data.filter((item:any) => {
+      const id_functionary = functLocal !== undefined && functLocal.id_store
+      return item.id_functionary ===  id_functionary 
+    }) : data
+
     const handleOpen = () => {
         setOpenDialog((cur) => !cur);
       }
@@ -34,10 +41,11 @@ export function MainNotas({ data }:any) {
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         setLoading(true)
+        const id_functionary = functLocal !== undefined && functLocal.id_store
         const { content,title } = data
         const id = user !== undefined ? user.id : 0
         const id_store = functLocal === undefined ? Number(id) : functLocal.id_store
-        const res = await actionNoteCreate({content,id_store,title})
+        const res = typeLogin !== "store" ? await actionNoteCreate({content,id_store,title,id_functionary,name:user?.name}) : await actionNoteCreate({content,id_store,title,id_functionary:0,name:"Superior"})
         if(typeof res !== "string") {
             setOpenDialog(false)
             window.location.reload()
@@ -46,7 +54,8 @@ export function MainNotas({ data }:any) {
             setLoading(false)
           }
         setLoading(false)
-    }  
+    }
+ 
     return (
         <main className="min-w-full flex justify-between">
             <div className="hidden lg:block">
@@ -60,7 +69,7 @@ export function MainNotas({ data }:any) {
             <div className="p-4 flex justify-center itemes-center flex-wrap gap-6">
             {
                 
-                data.map((note:any) => {
+                notas.map((note:any) => {
                     const date = formDate(note.created_at)
                     return (
                         <>
@@ -77,6 +86,9 @@ export function MainNotas({ data }:any) {
                           </CardBody>
                         <CardBody>
                             <Typography variant="h5" color="blue-gray" className="mb-2">
+                            {note.name}
+                            </Typography>
+                            <Typography color="blue-gray" className="mb-2">
                              {note.title}
                             </Typography>
                             <Typography className="mb-2">

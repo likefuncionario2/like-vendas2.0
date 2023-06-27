@@ -55,6 +55,8 @@ export function MainLogin() {
             ...res,
             service_start_date: typeof storeRes === 'object' && storeRes !== null ? storeRes[0].service_start_date : "",
             end_service_date: typeof storeRes === 'object' && storeRes !== null ? storeRes[0].end_service_date : "",
+            time_open: typeof storeRes === 'object' && storeRes !== null ? storeRes[0].time_open : "",
+            time_close: typeof storeRes === 'object' && storeRes !== null ? storeRes[0].time_close : "",
           }
         })) : localStorage.setItem("user",JSON.stringify({
           exp: `${date}`,
@@ -65,7 +67,7 @@ export function MainLogin() {
           id_functionary: res.id
         }))
         localStorage.setItem("type",typeSign)
-        window.location.href = typeSign === "store" ? `/users/store/${res.id_auth}/dashboard` : typeSign === "functionary" ? `/users/store/${res.id_auth}/functionary/${res.id}` : `/users/store/${res.id_auth}/chief`
+        window.location.href = typeSign === "store" ? `/users/store/${res.id_auth}/dashboard` : typeSign === "functionary" ? `/users/store/${res.id_auth}/products` : `/users/store/${res.id_auth}/chief`
       }
     }
     setLoading(false);

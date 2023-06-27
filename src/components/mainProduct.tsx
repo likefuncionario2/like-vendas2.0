@@ -75,9 +75,10 @@ export function MainProduct({ dataProduct,id_product }:any) {
      setQuat(quantity)
      const time_open = `${user?.time_open}`.slice(0, 2);
      const time_close = `${user?.time_close}`.slice(0, 2);
+     const hours = dateNew.getHours() < Number(time_open) || dateNew.getHours() > Number(time_close)
     
-     if(dateNew.getHours() < Number(time_open) || dateNew.getHours() > Number(time_close)) {
-      console.log("oi")
+     if(hours === true && typeLogin === "functionary") {
+      
       setError("A loja está fechada")
       setLoading(false)
      } else {
@@ -155,8 +156,8 @@ export function MainProduct({ dataProduct,id_product }:any) {
       {
         label: `${isSale === true ? "Valor de vendas" : "Valor de Adições"}`,
         data: dataGrafig.map((item:any) => item.value),
-        backgroundColor: ['rgba(33, 150, 243, 0.1)', 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
-        borderColor: ['rgba(33, 150, 243, 0.1)', 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
+        backgroundColor: ['rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
+        borderColor: ['rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
         borderWidth: 1,
       },
     ],
@@ -210,7 +211,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
     <Typography variant="h1">
         {dataProduct[0].name}
       </Typography>
-      <div><span className="">Preço:</span> {dataProduct[0].price}</div>
+      <div><span className="">Preço:</span> {dataProduct[0].price.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' })}</div>
       <div><span className="">Quantidade:</span> <span className={`${dataProduct[0].quantity <= dataProduct[0].minimum_stock_level && "text-red-500"}`}>{dataProduct[0].quantity}</span></div>
       <div><span className="">Valor minímo de stock:</span> {dataProduct[0].minimum_stock_level}</div>
       <div><span className="">Categoria:</span> {dataProduct[0].category}</div>
@@ -352,7 +353,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
             </CardHeader>
             <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-4 p-4">
-              <Input label="Preço" {...register("price", { required: true })}/>
+              <Input label="Preço" {...register("price", { required: true })} defaultValue={dataProduct[0].price}/>
               <Input label="Quantidade" {...register("quantity", { required: true })} />
               
             </div>

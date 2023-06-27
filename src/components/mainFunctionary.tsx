@@ -15,9 +15,14 @@ import { filterGrafigFunctionary } from "@/filteres/filterGrafigFunctionary";
 import { filterDataTable } from "@/filteres/filterDataTable";
 import { filterDataSalesAddition } from "@/filteres/filterDataSalesAddition";
 import { Delete } from "./delete";
+import { useType } from "@/hooks/useType";
+import { useFunctionary } from "@/hooks/useFunctionary";
 Chart.register(...registerables);
 
 export function MainFunctionary({ dataFunctionary }:any) {
+  const typeLogin = useType()
+  const functionary = useFunctionary()
+  const id_functionary = functionary?.id_functionary
   const id_auth = useIdAuth()
   const router = useRouter()
   const dateNew = new Date()
@@ -51,8 +56,8 @@ export function MainFunctionary({ dataFunctionary }:any) {
       {
         label: `${isSale === true ? "Valor de vendas" : "Valor de Adições"}`,
         data: dataGrafig.map((item:any) => item.value),
-        backgroundColor: ['rgba(33, 150, 243, 0.1)', 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
-        borderColor: ['rgba(33, 150, 243, 0.1)', 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
+        backgroundColor: [ 'rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
+        borderColor: ['rgba(33, 150, 243, 0.5)','rgba(33, 150, 243, 0.9)'],
         borderWidth: 1,
       },
     ],
@@ -73,8 +78,14 @@ export function MainFunctionary({ dataFunctionary }:any) {
     </div>
     <div className="min-w-full max-w-full lg:max-w-[80%] lg:min-w-[80%] p-4 flex justify-center itemes-center flex-col">
     <div className="min-w-full flex justify-between mb-6">
-        <Delete id={dataFunctionary[0].id} type="functionary"/>
-        <PencilSimple size={32} className="hover:text-blue-500 transition-all" onClick={() => setOpenEditor(!openEditor)}/>
+           {
+            typeLogin === "store" ? (
+              <>
+                <Delete id={dataFunctionary[0].id} type="product"/>
+          <PencilSimple size={32} className="hover:text-blue-500 transition-all" onClick={() => setOpenEditor(!openEditor)}/>
+              </>
+            ) : null
+          }
     </div>
     <div>
     {
