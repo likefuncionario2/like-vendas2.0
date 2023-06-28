@@ -23,7 +23,7 @@ export function filterDataSalesAddition(data:any,isSale:boolean = true) {
                 res.push({
                     id: item.id,
                     date,
-                    price: item.purchase_pricetotal.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' }),
+                    price: item.purchase_price.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' }),
                     quat: item.quantity_added,
                     total: total.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' }),
                     id_product: item.id_product,

@@ -98,7 +98,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
     
           if(typeof res !== "string") {
             if(res[0].id) {
-              const quat = dataProduct[0].quantity - quantity
+              const quat = Number(dataProduct[0].quantity) - Number(quantity)
               await updateQuatProduct(dataProduct[0].id,quat)
               window.location.reload()
             } else {
@@ -123,8 +123,8 @@ export function MainProduct({ dataProduct,id_product }:any) {
   
         if(typeof res !== "string") {
           if(res[0].id) {
-            const quat = dataProduct[0].quantity + quantity
-              await updateQuatProduct(dataProduct[0].id,quat)
+            const quat = Number(dataProduct[0].quantity) + Number(quantity)
+            await updateQuatProduct(dataProduct[0].id,quat)
             window.location.reload()
           } else {
             setError("Error Tente novamente")
@@ -319,7 +319,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
                   </td>
                   <td  className="px-2 py-4 text-xs">
                     <Typography variant="small"  className="font-normal">
-                      <Delete id={item.id} type={isSale === true ? "sale" : "addition"} quat={isSale === true ? dataProduct[0].quantity + quat : dataProduct[0].quantity - quat} id_product={dataProduct[0].id} />
+                      <Delete id={item.id} type={isSale === true ? "sale" : "addition"} quat={isSale === true ? dataProduct[0].quantity + Number(item.quat) : dataProduct[0].quantity - Number(item.quat)} id_product={dataProduct[0].id} />
                     </Typography>
                   </td>
                 </tr>
