@@ -81,7 +81,7 @@ export function MainFunctionary({ dataFunctionary }:any) {
            {
             typeLogin === "store" ? (
               <>
-                <Delete id={dataFunctionary[0].id} type="product" id_product={0}/>
+                <Delete id={dataFunctionary[0].id} type="functionary" id_product={0}/>
           <PencilSimple size={32} className="hover:text-blue-500 transition-all" onClick={() => setOpenEditor(!openEditor)}/>
               </>
             ) : null
