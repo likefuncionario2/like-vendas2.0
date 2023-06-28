@@ -10,7 +10,7 @@ export function filterGrafigFunctionary(data:any,isSales:any) {
                 const date = formDate(item1.created_at)
                 res.push({
                     label: date,
-                    value: item1.price_sold * item1.quantity_sold
+                    value: Number(item1.price_sold) * Number(item1.quantity_sold)
                 })
             }) 
          }else {
@@ -18,7 +18,7 @@ export function filterGrafigFunctionary(data:any,isSales:any) {
                 const date = formDate(item1.created_at)
                 res.push({
                     label: date,
-                    value: item1.purchase_price * item1.quantity_added
+                    value: Number(item1.purchase_price) * Number(item1.quantity_added)
                 })
             })
          }

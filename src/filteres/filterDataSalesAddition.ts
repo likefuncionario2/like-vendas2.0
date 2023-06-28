@@ -6,7 +6,7 @@ export function filterDataSalesAddition(data:any,isSale:boolean = true) {
         if(isSale === true) {
             return item.sales.map((item:any) => { 
                 const date = formDate(item.created_at);
-                const total = item.price_sold * item.quantity_sold
+                const total = item.price_sold * Number(item.quantity_sold)
                 res.push({
                     id: item.id,
                     date,
@@ -19,7 +19,7 @@ export function filterDataSalesAddition(data:any,isSale:boolean = true) {
         }else {
             return  item.addition.map((item:any) => { 
                 const date = formDate(item.created_at);
-                const total = item.purchase_price * item.quantity_added
+                const total = item.purchase_price * Number(item.quantity_added)
                 res.push({
                     id: item.id,
                     date,

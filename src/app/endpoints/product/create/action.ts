@@ -8,9 +8,9 @@ export async function actionProductCreate({name,price,id_store,description,quant
   .insert({
     name,
     id_store,
-    price,
+    price: Number(price),
     description,
-    quantity,
+    quantity: Number(quantity),
     category,
     minimum_stock_level
   })

@@ -6,7 +6,7 @@ export function filterDataGrafig2(data:any,date:any) {
     const res =  {
             label: `${dateForm}`,
             value: data.reduce((acc:any,v:any) => {
-                return acc + v.value
+                return acc + Number(v.value)
             },0)
         }
     return res

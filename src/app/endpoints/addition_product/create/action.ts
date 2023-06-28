@@ -8,8 +8,8 @@ export async function actionAdditionCreate({id_store,id_product,id_functionary,q
     id_store,
     id_functionary,
     id_product,
-    quantity_added,
-    purchase_price
+    quantity_added: Number(quantity_added),
+    purchase_price: Number(purchase_price),
   })
   .select()
   return data == null ? statusText : data

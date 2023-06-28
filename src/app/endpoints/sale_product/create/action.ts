@@ -8,8 +8,8 @@ export async function actionSaleCreate({id_store,id_product,id_functionary,quant
     id_store,
     id_functionary,
     id_product,
-    quantity_sold,
-    price_sold
+    quantity_sold: Number(quantity_sold),
+    price_sold: Number(price_sold),
   })
   .select()
   return data == null ? statusText : data

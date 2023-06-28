@@ -6,9 +6,9 @@ export async function actionProductUpdate({ id,name,price,category,quantity,mini
   .from('product')
   .update({
     name,
-    price,
+    price: Number(price),
     category,
-    quantity,
+    quantity: Number(quantity),
     minimum_stock_level,
     description,
   })
