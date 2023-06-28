@@ -244,7 +244,7 @@ export function MainProduct({ dataProduct,id_product }:any) {
     </div>
     <div className="max-w-[200px] flex flex-wrap gap-2">
         <div>Data:</div>
-        <Input label="início" type="date" onChange={(e) => setDate(e.target.value)}/>
+        <Input label="início" type="date" onChange={(e) => setDate(`${e.target.value === "" ? dateNew : e.target.value}`)}/>
       </div>  
     </div>
 

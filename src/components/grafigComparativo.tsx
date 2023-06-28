@@ -88,9 +88,9 @@ export function GrafigComparativo({ type,data }: any) {
       <div className="min-w-full flex gap-2 flex-wrap justify-end items-center mb-6">
         <div className="max-w-[200px] flex flex-wrap gap-2">
         <div>Data:</div>
-        <Input label="início" type="date" onChange={(e:any) => setDate(e.target.value)}/>
+        <Input label="início" type="date" onChange={(e:any) => setDate(e.target.value === "" ? dateNow : e.target.value)}/>
         <div>para</div>
-        <Input label="início" type="date" onChange={(e:any) => setDate1(e.target.value)}/>
+        <Input label="início" type="date" onChange={(e:any) => setDate1(e.target.value === "" ? dateNow2 : e.target.value)}/>
         </div>
       </div>
       <div className="min-w-full flex gap-2 flex-wrap justify-end items-center">

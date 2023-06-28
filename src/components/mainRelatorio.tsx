@@ -70,7 +70,7 @@ export function MainRelatorio({type,data}:any) {
       <div className="min-w-full mt-6 p-4">
         <div className="w-full flex justify-end gap-4">
           <div className="my-4 max-w-[200px]">
-          <Input label="início" type="date" onChange={(e:any) => setDate(e.target.value)}/>
+          <Input label="início" type="date" onChange={(e:any) => setDate(`${e.target.value === "" ? dateNow : e.target.value}`)}/>
           </div>
         </div>
       <div className="my-2">

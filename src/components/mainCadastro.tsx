@@ -93,7 +93,7 @@ export function MainCadastro() {
                 }
                 </div>
                 <p className="text-xs font-thin">
-                8 Digítos, 1 Letra minúscula, 1 Maiúscula, 1 Número e um caracter especial (#$%&?).<br />
+                8 Letras, 1 Letra minúscula, 1 Letra Maiúscula, 1 Número e um caracter especial (#$%&?).<br />
                 Ex: Abcdefgh123#
                 </p>
                 
