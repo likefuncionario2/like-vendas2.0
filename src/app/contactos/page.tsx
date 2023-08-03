@@ -11,9 +11,9 @@ export default function Contactos() {
 
       <h2 className="text-2xl my-4">Informações de Contato:</h2>
       <ul className="m-6 flex flex-col gap-3">
-        <li>Email: <a href="mailto:agenciacover1@gmail.com">agenciacover1@gmail.com</a></li>
-        <li>Número de Telefone: <a href="tel:+244958552605">958552605</a></li>
-        <li>Instagram: <a href="https://www.instagram.com/agenciacover1/">agenciacover1</a></li>
+        <li>Email: <a href="mailto:agenciacover1@gmail.com" target="_blank">agenciacover1@gmail.com</a></li>
+        <li>Número de Telefone: <a href="tel:+244958552605" target="_blank">958552605</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/agenciacover1/" target="_blank">agenciacover1</a></li>
       </ul>
       </main>
       <Footer />

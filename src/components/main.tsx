@@ -134,9 +134,9 @@ export function Main() {
       </div>
 
       <div className="fixed bottom-5 right-5">
-        <Link href="https://is.gd/ZQ0uVd" >
+        <a href="https://is.gd/ZQ0uVd" target="_blank">
         <WhatsappLogo size={48} className="bg-green-500 text-white p-3 rounded-full hover:bg-white hover:text-green-500 transition-all"/>
-        </Link>
+        </a>
       </div>
       </main>
     )

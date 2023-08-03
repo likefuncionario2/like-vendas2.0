@@ -24,6 +24,7 @@ export default function SobreNos() {
           <li>Criação de Conteúdo Criativo</li>
           <li>Campanhas de Publicidade Online</li>
         </ul>
+        <div className="min-w-full text-center m-8">Desenvolvido por: <span className="font-bold">Óscar Jeremias</span></div>
       </main>
       <Footer />
     </>
